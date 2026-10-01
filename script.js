@@ -9,7 +9,7 @@
    ============================================================ */
 
 const API_BASE_URL =
-  "https://nyc-airbnb-room-type-predictor.onrender.com";
+  "https://stayhance-room-type-predictor.onrender.com/";
 
 const PREDICT_URL =
   `${API_BASE_URL}/predict`;
