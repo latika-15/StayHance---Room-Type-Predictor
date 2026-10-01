@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Stayhance · NYC Airbnb Predictor</title>
+
+  <!-- =====================================================
+       FONTS
+  ====================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Caveat:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- =====================================================
+       ICONS
+  ====================================================== -->
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- =====================================================
+       CSS
+  ====================================================== -->
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       BACKGROUND
+  ====================================================== -->
+
+  <div class="site-background" aria-hidden="true">
+
+    <div class="sky-glow sky-glow-one"></div>
+    <div class="sky-glow sky-glow-two"></div>
+    <div class="sky-glow sky-glow-three"></div>
+
+    <!-- Decorative NYC skyline -->
+    <div class="nyc-skyline">
+
+      <div class="building bg-building b1"></div>
+      <div class="building bg-building b2"></div>
+      <div class="building bg-building b3"></div>
+      <div class="building bg-building b4"></div>
+      <div class="building bg-building b5"></div>
+      <div class="building bg-building b6"></div>
+      <div class="building bg-building b7"></div>
+      <div class="building bg-building b8"></div>
+      <div class="building bg-building b9"></div>
+      <div class="building bg-building b10"></div>
+      <div class="building bg-building b11"></div>
+      <div class="building bg-building b12"></div>
+
+      <div class="tower tower-one"></div>
+      <div class="tower tower-two"></div>
+
+    </div>
+
+    <!-- Water reflection -->
+    <div class="water-reflection"></div>
+
+    <!-- Small decorative lights -->
+    <div class="city-light light-1"></div>
+    <div class="city-light light-2"></div>
+    <div class="city-light light-3"></div>
+    <div class="city-light light-4"></div>
+    <div class="city-light light-5"></div>
+    <div class="city-light light-6"></div>
+    <div class="city-light light-7"></div>
+    <div class="city-light light-8"></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MAIN APP
+  ====================================================== -->
+
+  <div class="app">
+
+
+    <!-- ===================================================
+         TOP NAVIGATION
+    ==================================================== -->
+
+    <header class="topbar">
+
+      <!-- Logo -->
+
+      <a
+        href="#"
+        class="logo"
+        aria-label="Stayhance home"
+      >
+
+        <div class="logo-name">
+          Stayhance
+          <span class="logo-spark">✦</span>
+        </div>
+
+        <div class="logo-subtitle">
+          NYC AIRBNB · ROOM TYPE PREDICTOR
+        </div>
+
+      </a>
+
+
+      <!-- Navigation -->
+
+      <!-- <nav class="navigation">
+
+        <a
+          href="#home"
+          class="nav-item active"
+        >
+          <i data-lucide="home"></i>
+          <span>Home</span>
+        </a>
+
+        <a
+          href="#about"
+          class="nav-item"
+        >
+          <i data-lucide="info"></i>
+          <span>About</span>
+        </a>
+
+        <a
+          href="#dataset"
+          class="nav-item"
+        >
+          <i data-lucide="database"></i>
+          <span>Dataset</span>
+        </a>
+
+        <a
+          href="#project"
+          class="nav-item"
+        >
+          <i data-lucide="code-2"></i>
+          <span>Project</span>
+        </a>
+
+      </nav> -->
+
+
+      <!-- Right controls -->
+
+      <div class="topbar-right">
+
+        <div
+          class="api-pill"
+          id="apiStatus"
+        >
+
+          <span class="api-dot"></span>
+
+          <span class="status-text">
+            API Connected
+          </span>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="theme-button"
+          id="themeButton"
+          aria-label="Toggle theme"
+        >
+          <i data-lucide="moon"></i>
+        </button>
+
+      </div>
+
+    </header>
+
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
+      <div class="hero-note left-note">
+        <span>New York</span>
+        <span>Different doors</span>
+        <span>Same city ♡</span>
+      </div>
+
+
+      <div class="hero-main">
+
+        <div class="eyebrow">
+
+          <span class="eyebrow-dot"></span>
+
+          NYC AIRBNB · MACHINE LEARNING
+
+          <span class="eyebrow-line"></span>
+
+        </div>
+
+
+        <h1>
+
+          Read the listing.
+          <span>Predict the stay.</span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+          Enter an Airbnb listing's details and discover whether
+          it is most likely to be an entire home, private room,
+          or shared room in New York City.
+
+        </p>
+
+
+        <!-- Hero information pills -->
+
+        <div class="hero-pills">
+
+
+          <div class="hero-pill">
+
+            <div class="pill-icon blue">
+              <i data-lucide="map-pin"></i>
+            </div>
+
+            <div class="pill-text">
+              <strong>NYC</strong>
+              <span>Real listing data</span>
+            </div>
+
+          </div>
+
+
+          <div class="hero-pill">
+
+            <div class="pill-icon purple">
+              <i data-lucide="layers-3"></i>
+            </div>
+
+            <div class="pill-text">
+              <strong>3</strong>
+              <span>Room types</span>
+            </div>
+
+          </div>
+
+
+          <div class="hero-pill">
+
+            <div class="pill-icon pink">
+              <i data-lucide="sparkles"></i>
+            </div>
+
+            <div class="pill-text">
+              <strong>ML</strong>
+              <span>Prediction engine</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-note right-note">
+        <span>Homes</span>
+        <span>Rooms</span>
+        <span>Stories ♡</span>
+        <span>NYC</span>
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         MAIN CONTENT
+    ==================================================== -->
+
+    <main class="content-grid">
+
+
+      <!-- =================================================
+           LEFT — LISTING FORM
+      ================================================== -->
+
+      <section
+        class="glass-card listing-card"
+        id="about"
+      >
+
+
+        <!-- Card header -->
+
+        <div class="card-header">
+
+          <div class="card-heading">
+
+            <div class="card-icon blue-icon">
+              <i data-lucide="square-pen"></i>
+            </div>
+
+            <div>
+
+              <span class="card-kicker">
+                LISTING DETAILS
+              </span>
+
+              <h2>
+                Tell us about the listing
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="example-button"
+            id="exampleBtn"
+          >
+
+            <i data-lucide="box"></i>
+
+            <span>
+              Try example
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <div class="card-divider"></div>
+
+
+
+        <!-- =================================================
+             FORM
+        ================================================== -->
+
+        <form
+          id="predictForm"
+          novalidate
+        >
+
+
+          <!-- =============================================
+               LOCATION
+          ============================================== -->
+
+          <fieldset>
+
+            <legend>
+
+              <span class="legend-icon location">
+                <i data-lucide="map-pin"></i>
+              </span>
+
+              <span>
+                Location
+              </span>
+
+            </legend>
+
+
+            <div class="field-grid">
+
+
+              <!-- Latitude -->
+
+              <div class="field">
+
+                <label for="latitude">
+                  Latitude
+                </label>
+
+                <div class="input-box">
+
+                  <input
+                    type="number"
+                    id="latitude"
+                    name="latitude"
+                    step="0.000001"
+                    min="-90"
+                    max="90"
+                    placeholder="40.7128"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- Longitude -->
+
+              <div class="field">
+
+                <label for="longitude">
+                  Longitude
+                </label>
+
+                <div class="input-box">
+
+                  <input
+                    type="number"
+                    id="longitude"
+                    name="longitude"
+                    step="0.000001"
+                    min="-180"
+                    max="180"
+                    placeholder="-74.0060"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- Borough -->
+
+              <div class="field">
+
+                <label for="neighbourhood_group">
+                  Borough
+                </label>
+
+                <div class="input-box select-box">
+
+                  <select
+                    id="neighbourhood_group"
+                    name="neighbourhood_group"
+                    required
+                  >
+
+                    <option
+                      value=""
+                      disabled
+                      selected
+                    >
+                      Choose a borough
+                    </option>
+
+                    <option value="Manhattan">
+                      Manhattan
+                    </option>
+
+                    <option value="Brooklyn">
+                      Brooklyn
+                    </option>
+
+                    <option value="Queens">
+                      Queens
+                    </option>
+
+                    <option value="Bronx">
+                      Bronx
+                    </option>
+
+                    <option value="Staten Island">
+                      Staten Island
+                    </option>
+
+                  </select>
+
+                  <i data-lucide="chevron-down"></i>
+
+                </div>
+
+              </div>
+
+
+              <!-- Neighbourhood -->
+
+              <div class="field">
+
+                <label for="neighbourhood">
+                  Neighbourhood
+                </label>
+
+                <div class="input-box">
+
+                  <input
+                    type="text"
+                    id="neighbourhood"
+                    name="neighbourhood"
+                    placeholder="e.g. Williamsburg"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </fieldset>
+
+
+
+          <!-- =============================================
+               PRICING
+          ============================================== -->
+
+          <fieldset>
+
+            <legend>
+
+              <span class="legend-icon price">
+                <i data-lucide="tag"></i>
+              </span>
+
+              <span>
+                Pricing & stay
+              </span>
+
+            </legend>
+
+
+            <div class="field-grid">
+
+
+              <!-- Price -->
+
+              <div class="field">
+
+                <label for="price">
+                  Price per night
+                  <small>USD</small>
+                </label>
+
+                <div class="input-box price-input">
+
+                  <span>$</span>
+
+                  <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    min="1"
+                    step="1"
+                    placeholder="150"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- Minimum nights -->
+
+              <div class="field">
+
+                <label for="minimum_nights">
+                  Minimum nights
+                </label>
+
+                <div class="input-box">
+
+                  <input
+                    type="number"
+                    id="minimum_nights"
+                    name="minimum_nights"
+                    min="1"
+                    max="365"
+                    step="1"
+                    placeholder="3"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Availability -->
+
+            <div class="availability-field">
+
+              <div class="availability-header">
+
+                <label for="availability_365">
+                  Days available per year
+                </label>
+
+                <div class="availability-value">
+
+                  <strong id="availabilityValue">
+                    180
+                  </strong>
+
+                  <span>
+                    / 365
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <input
+                type="range"
+                id="availability_365"
+                name="availability_365"
+                min="0"
+                max="365"
+                step="1"
+                value="180"
+                required
+              >
+
+
+              <div class="range-labels">
+
+                <span>
+                  Rarely available
+                </span>
+
+                <span>
+                  Always available
+                </span>
+
+              </div>
+
+            </div>
+
+          </fieldset>
+
+
+
+          <!-- =============================================
+               REVIEWS
+          ============================================== -->
+
+          <fieldset>
+
+            <legend>
+
+              <span class="legend-icon review">
+                <i data-lucide="message-square"></i>
+              </span>
+
+              <span>
+                Reviews & host
+              </span>
+
+            </legend>
+
+
+            <div class="field-grid">
+
+
+              <!-- Reviews -->
+
+              <div class="field">
+
+                <label for="number_of_reviews">
+                  Total reviews
+                </label>
+
+                <div class="input-box">
+
+                  <input
+                    type="number"
+                    id="number_of_reviews"
+                    name="number_of_reviews"
+                    min="0"
+                    step="1"
+                    placeholder="24"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- Reviews / month -->
+
+              <div class="field">
+
+                <label for="reviews_per_month">
+                  Reviews per month
+                </label>
+
+                <div class="input-box">
+
+                  <input
+                    type="number"
+                    id="reviews_per_month"
+                    name="reviews_per_month"
+                    min="0"
+                    step="0.01"
+                    placeholder="1.2"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- Host listings -->
+
+              <div class="field full-field">
+
+                <label for="calculated_host_listings_count">
+                  Listings by this host
+                </label>
+
+                <div class="input-box">
+
+                  <input
+                    type="number"
+                    id="calculated_host_listings_count"
+                    name="calculated_host_listings_count"
+                    min="0"
+                    step="1"
+                    placeholder="1"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </fieldset>
+
+
+
+          <!-- =============================================
+               PREDICT BUTTON
+          ============================================== -->
+
+          <button
+            type="submit"
+            class="predict-button"
+            id="predictBtn"
+          >
+
+            <span class="button-shine"></span>
+
+            <span class="button-content">
+
+              <i data-lucide="sparkles"></i>
+
+              <span>
+                Predict room type
+              </span>
+
+              <i
+                data-lucide="arrow-right"
+                class="button-arrow"
+              ></i>
+
+            </span>
+
+
+            <span
+              class="btn-spinner"
+              aria-hidden="true"
+            ></span>
+
+          </button>
+
+
+          <p
+            class="form-error"
+            id="formError"
+            role="alert"
+          ></p>
+
+        </form>
+
+      </section>
+
+
+
+      <!-- =================================================
+           RIGHT — PREDICTION
+      ================================================== -->
+
+      <section
+        class="glass-card prediction-card"
+        id="dataset"
+      >
+
+
+        <!-- Card header -->
+
+        <div class="card-header">
+
+          <div class="card-heading">
+
+            <div class="card-icon purple-icon">
+              <i data-lucide="bar-chart-3"></i>
+            </div>
+
+            <div>
+
+              <span class="card-kicker">
+                PREDICTION
+              </span>
+
+              <h2>
+                Most likely room type
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="model-status">
+
+            <span></span>
+
+            <span class="status-text">
+              Model ready
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="card-divider"></div>
+
+
+
+        <!-- =================================================
+             EMPTY / INITIAL STATE
+        ================================================== -->
+
+        <div
+          class="prediction-empty"
+          id="resultEmpty"
+        >
+
+          <div class="empty-room-scene">
+
+            <div class="scene-glow"></div>
+
+            <div class="scene-building scene-small">
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+            <div class="scene-building scene-main">
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+            <div class="scene-building scene-tall">
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+          </div>
+
+
+          <h3>
+            Waiting for a listing
+          </h3>
+
+
+          <p>
+            Add the listing details on the left
+            and we'll show you what kind of
+            stay it looks like.
+          </p>
+
+
+          <div class="empty-hint">
+
+            <i data-lucide="mouse-pointer-click"></i>
+
+            <span>
+              Your prediction will appear here
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ACTUAL RESULT
+        ================================================== -->
+
+        <div
+          class="prediction-result"
+          id="resultContent"
+          hidden
+        >
+
+
+         <div class="result-scene"></div>
+
+
+
+          <!-- =============================================
+               PREDICTED TYPE
+          ============================================== -->
+
+          <div class="prediction-highlight">
+
+            <div class="prediction-type-icon">
+
+              <i
+                data-lucide="bed-double"
+                id="predictionTypeIcon"
+              ></i>
+
+            </div>
+
+
+            <div class="prediction-copy">
+
+              <span>
+                MOST LIKELY
+              </span>
+
+              <strong id="predictedName">
+                Private room
+              </strong>
+
+              <p id="predictionDescription">
+                This listing looks most like a
+                private room based on the details
+                you provided.
+              </p>
+
+            </div>
+
+
+            <div class="confidence-circle">
+
+              <strong id="predictionConfidence">
+                63%
+              </strong>
+
+              <span>
+                confidence
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =============================================
+               PROBABILITY
+          ============================================== -->
+
+          <div class="probability-section">
+
+            <div class="probability-heading">
+
+              <div class="probability-title">
+
+                <div class="mini-chart-icon">
+                  <i data-lucide="bar-chart-3"></i>
+                </div>
+
+                <div>
+
+                  <span>
+                    MODEL CONFIDENCE
+                  </span>
+
+                  <h3>
+                    Probability breakdown
+                  </h3>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="prob-list"
+              id="probList"
+            >
+
+              <!-- JS inserts probability rows -->
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =============================================
+               NOTE
+          ============================================== -->
+
+          <div class="result-note">
+
+            <div class="note-icon">
+              <i data-lucide="info"></i>
+            </div>
+
+            <p>
+              These probabilities show the model's
+              estimated likelihood for each room type.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+
+    <!-- ===================================================
+         BOTTOM DECORATIVE TEXT
+    ==================================================== -->
+
+    <div class="bottom-story">
+
+      <span>
+        Find the stay behind the numbers.
+      </span>
+
+      <div class="story-line"></div>
+
+      <span>
+        NYC · 2019 Airbnb listings
+      </span>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         FOOTER
+    ==================================================== -->
+
+    <footer class="footer">
+
+      <div class="footer-brand">
+        <strong>Stayhance</strong>
+        <span>
+          NYC Airbnb Room Type Predictor
+        </span>
+      </div>
+
+      <div class="footer-center">
+        Built with data · designed with curiosity
+      </div>
+
+      <div class="footer-right">
+        © 2026 Stayhance
+      </div>
+
+    </footer>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        if (
+          window.lucide &&
+          typeof lucide.createIcons === "function"
+        ) {
+
+          lucide.createIcons();
+
+        }
+
+      }
+    );
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
