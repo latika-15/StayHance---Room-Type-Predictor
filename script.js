@@ -9,14 +9,11 @@
    ============================================================ */
 
 const API_BASE_URL =
-  "https://stayhance-room-type-predictor.onrender.com/";
+  "https://stayhance-room-type-predictor.onrender.com";
 
-const PREDICT_URL =
-  `${API_BASE_URL}/predict`;
+const PREDICT_URL = `${API_BASE_URL}/predict`;
 
-const HEALTH_URL =
-  `${API_BASE_URL}/`;
-
+const HEALTH_URL = `${API_BASE_URL}/`;
 
 /* ============================================================
    02. ROOM TYPE CONFIGURATION
